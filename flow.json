@@ -8,6 +8,153 @@
         "env": []
     },
     {
+        "id": "0870956febb0de40",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ccfe28f3.9343a8",
+        "type": "mpd-server",
+        "host": "192.168.1.198",
+        "port": "6600"
+    },
+    {
+        "id": "23cd7a71.311de6",
+        "type": "ui_tab",
+        "name": "Radio/Music",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "cff511fa.bd1cc",
+        "type": "ui_group",
+        "name": "Radio",
+        "tab": "23cd7a71.311de6",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f79bab65.368118",
+        "type": "ui_group",
+        "name": "Now Playing",
+        "tab": "23cd7a71.311de6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "cd4131b9.92a1e",
+        "type": "ui_group",
+        "name": "Music",
+        "tab": "23cd7a71.311de6",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "520aba92de209211",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
         "id": "010df53edcdcf304",
         "type": "inject",
         "z": "4310f8d2e05f93a5",
@@ -51,6 +198,665 @@
         "statusType": "auto",
         "x": 530,
         "y": 100,
+        "wires": []
+    },
+    {
+        "id": "13aa2c55.b7e3d4",
+        "type": "mpd out",
+        "z": "4310f8d2e05f93a5",
+        "name": "",
+        "topic": "",
+        "server": "ccfe28f3.9343a8",
+        "x": 796,
+        "y": 512,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "302a91a4.18cb3e",
+        "type": "mpd in",
+        "z": "4310f8d2e05f93a5",
+        "name": "",
+        "topic": "",
+        "server": "ccfe28f3.9343a8",
+        "x": 136,
+        "y": 153,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8bf22a4f26732b49",
+        "type": "ui_dropdown",
+        "z": "0870956febb0de40",
+        "name": "",
+        "label": "Station:",
+        "place": "Select option",
+        "group": "cff511fa.bd1cc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "options": [
+            {
+                "label": "Radio 1",
+                "value": "0",
+                "type": "str"
+            },
+            {
+                "label": "Radio 2",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Radio 3",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Radio 4",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Radio 5",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Radio 6",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Classic Rock",
+                "value": "6",
+                "type": "str"
+            },
+            {
+                "label": "Planet Rock",
+                "value": "7",
+                "type": "str"
+            },
+            {
+                "label": "Union Jack",
+                "value": "8",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 440,
+        "y": 240,
+        "wires": [
+            [
+                "6fa7101670aea9b3"
+            ]
+        ]
+    },
+    {
+        "id": "f73eb666e583abe6",
+        "type": "mpd out",
+        "z": "0870956febb0de40",
+        "name": "",
+        "topic": "",
+        "server": "ccfe28f3.9343a8",
+        "x": 756,
+        "y": 412,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b1e08de01a57f01b",
+        "type": "mpd in",
+        "z": "0870956febb0de40",
+        "name": "",
+        "topic": "",
+        "server": "ccfe28f3.9343a8",
+        "x": 96,
+        "y": 53,
+        "wires": [
+            [
+                "e2aa5254cbc3bfaa",
+                "def0881d60c23de7",
+                "1f76cca58d5094f0"
+            ]
+        ]
+    },
+    {
+        "id": "6fa7101670aea9b3",
+        "type": "function",
+        "z": "0870956febb0de40",
+        "name": "play x",
+        "func": "var temp = msg.payload;\n\ntemp = \"play \" + temp;\n\nvar msg = {\n    payload:temp\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 589,
+        "y": 240,
+        "wires": [
+            [
+                "f73eb666e583abe6"
+            ]
+        ]
+    },
+    {
+        "id": "e2aa5254cbc3bfaa",
+        "type": "function",
+        "z": "0870956febb0de40",
+        "name": "Title",
+        "func": "var temp = msg.payload.currentsong.Title;\n\nif (typeof temp === \"undefined\") temp = \"\";\n\nvar msg = {\n    payload:temp\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 40,
+        "wires": [
+            [
+                "bc95f6374c13bb76",
+                "cb143ed7b88c1ee7"
+            ]
+        ]
+    },
+    {
+        "id": "bc95f6374c13bb76",
+        "type": "ui_text",
+        "z": "0870956febb0de40",
+        "group": "f79bab65.368118",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Track:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 750,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "0c2847fc8e7f5146",
+        "type": "ui_dropdown",
+        "z": "0870956febb0de40",
+        "name": "",
+        "label": "Add Playlist:",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "cd4131b9.92a1e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "None",
+                "value": "None",
+                "type": "str"
+            },
+            {
+                "label": "The Nice",
+                "value": "TheNice",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "topicType": "str",
+        "className": "",
+        "x": 448,
+        "y": 554,
+        "wires": [
+            [
+                "b8b07ca5f464ddfa",
+                "f8b410fd36b69d7a"
+            ]
+        ]
+    },
+    {
+        "id": "b8b07ca5f464ddfa",
+        "type": "function",
+        "z": "0870956febb0de40",
+        "name": "load",
+        "func": "var temp = msg.payload;\n\nif(temp===\"None\") return null;\n\ntemp = \"load \" + temp;\n\nvar msg = {\n    payload:temp\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 608,
+        "y": 553,
+        "wires": [
+            [
+                "f73eb666e583abe6"
+            ]
+        ]
+    },
+    {
+        "id": "1f76cca58d5094f0",
+        "type": "function",
+        "z": "0870956febb0de40",
+        "name": "Artist",
+        "func": "var temp = msg.payload.currentsong.Artist;\n\nif (typeof temp === \"undefined\") temp = \"\";\n\nvar msg = {\n    payload:temp\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 441,
+        "y": 100,
+        "wires": [
+            [
+                "51b41824c9e81d80"
+            ]
+        ]
+    },
+    {
+        "id": "def0881d60c23de7",
+        "type": "function",
+        "z": "0870956febb0de40",
+        "name": "Album",
+        "func": "var temp = msg.payload.currentsong.Album;\n\nif (typeof temp === \"undefined\") temp = \"\";\n\nvar msg = {\n    payload:temp\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 443,
+        "y": 146,
+        "wires": [
+            [
+                "249d5716ee5e9988"
+            ]
+        ]
+    },
+    {
+        "id": "249d5716ee5e9988",
+        "type": "ui_text",
+        "z": "0870956febb0de40",
+        "group": "cd4131b9.92a1e",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "Album",
+        "label": "Album:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 746,
+        "y": 144,
+        "wires": []
+    },
+    {
+        "id": "51b41824c9e81d80",
+        "type": "ui_text",
+        "z": "0870956febb0de40",
+        "group": "cd4131b9.92a1e",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "Artist",
+        "label": "Artist:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 746,
+        "y": 98,
+        "wires": []
+    },
+    {
+        "id": "2bf6ddcfc381359b",
+        "type": "ui_button",
+        "z": "0870956febb0de40",
+        "name": "previous",
+        "group": "cd4131b9.92a1e",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "label": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "fa-step-backward",
+        "payload": "previous",
+        "payloadType": "str",
+        "topic": "",
+        "x": 432,
+        "y": 664,
+        "wires": [
+            [
+                "f73eb666e583abe6"
+            ]
+        ]
+    },
+    {
+        "id": "9977b160cb0ce8b8",
+        "type": "ui_button",
+        "z": "0870956febb0de40",
+        "name": "next",
+        "group": "cd4131b9.92a1e",
+        "order": 6,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "label": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "fa-step-forward",
+        "payload": "next",
+        "payloadType": "str",
+        "topic": "",
+        "x": 607,
+        "y": 665,
+        "wires": [
+            [
+                "f73eb666e583abe6"
+            ]
+        ]
+    },
+    {
+        "id": "2a9a5b57f6df0c3a",
+        "type": "ui_button",
+        "z": "0870956febb0de40",
+        "name": "",
+        "group": "cd4131b9.92a1e",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "Clear list",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "clear",
+        "payloadType": "str",
+        "topic": "",
+        "x": 452,
+        "y": 617,
+        "wires": [
+            [
+                "f73eb666e583abe6",
+                "baf128ee6d1544e1"
+            ]
+        ]
+    },
+    {
+        "id": "b1a5aec264164d31",
+        "type": "ui_switch",
+        "z": "0870956febb0de40",
+        "name": "Random",
+        "label": "",
+        "group": "cd4131b9.92a1e",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "random 1",
+        "onvalueType": "str",
+        "onicon": "fa-random",
+        "oncolor": "#00FF00",
+        "offvalue": "random 0",
+        "offvalueType": "str",
+        "officon": "fa-random",
+        "offcolor": "#FF0000",
+        "x": 497,
+        "y": 492,
+        "wires": [
+            [
+                "f73eb666e583abe6"
+            ]
+        ]
+    },
+    {
+        "id": "9cc27043a098bf97",
+        "type": "ui_switch",
+        "z": "0870956febb0de40",
+        "name": "PlayPause",
+        "label": "",
+        "group": "cd4131b9.92a1e",
+        "order": 5,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "play",
+        "onvalueType": "str",
+        "onicon": "fa-play",
+        "oncolor": "#FFFFFF",
+        "offvalue": "pause",
+        "offvalueType": "str",
+        "officon": "fa-pause",
+        "offcolor": "#FFFFFF",
+        "x": 505,
+        "y": 446,
+        "wires": [
+            [
+                "f73eb666e583abe6"
+            ]
+        ]
+    },
+    {
+        "id": "4f1dfa6b7e5c20c4",
+        "type": "ui_switch",
+        "z": "0870956febb0de40",
+        "name": "Radio",
+        "label": "",
+        "group": "f79bab65.368118",
+        "order": 1,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "On",
+        "onvalueType": "str",
+        "onicon": "fa-rss-square",
+        "oncolor": "#00FF00",
+        "offvalue": "Off",
+        "offvalueType": "str",
+        "officon": "fa-rss-square",
+        "offcolor": "#FF0000",
+        "x": 113,
+        "y": 307,
+        "wires": [
+            [
+                "8108293b905ba9c5"
+            ]
+        ]
+    },
+    {
+        "id": "5072f9baf0b081cc",
+        "type": "ui_switch",
+        "z": "0870956febb0de40",
+        "name": "Music",
+        "label": "",
+        "group": "f79bab65.368118",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "On",
+        "onvalueType": "str",
+        "onicon": "my_library_music",
+        "oncolor": "#00FF00",
+        "offvalue": "Off",
+        "offvalueType": "str",
+        "officon": "my_library_music",
+        "offcolor": "#FF0000",
+        "x": 116,
+        "y": 422,
+        "wires": [
+            [
+                "81dd0487367c78ed"
+            ]
+        ]
+    },
+    {
+        "id": "8108293b905ba9c5",
+        "type": "function",
+        "z": "0870956febb0de40",
+        "name": "Radio on/off",
+        "func": "var temp = msg.payload;\n\nif(temp===\"On\") {\n    temp=\"Off\";\n\nvar msg1 = {\n    payload:temp\n};\n\nvar msg2 = {\n    payload: \"load stations\"\n};\n\nvar msg3 = {\n    payload: \"3\"\n};\n\nreturn [msg1,msg2,msg3];\n}\nvar msg2 = {\n    payload: \"clear\"\n};\nreturn [null,msg2, null];",
+        "outputs": "3",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 261,
+        "y": 307,
+        "wires": [
+            [
+                "5072f9baf0b081cc"
+            ],
+            [
+                "f73eb666e583abe6"
+            ],
+            [
+                "dda1116ce1c3507b"
+            ]
+        ]
+    },
+    {
+        "id": "81dd0487367c78ed",
+        "type": "function",
+        "z": "0870956febb0de40",
+        "name": "Music on/off",
+        "func": "var temp = msg.payload;\n\nif(temp===\"On\") {\n    temp=\"Off\";\n\nvar msg1 = {\n    payload:temp\n};\n\nvar msg3 = { payload: \"pause\"};\n\nvar msg4 = {payload: \"None\"};\n\nvar msg5 = {payload:\"random 0\"}\n\nreturn [msg1,null,msg3,msg4,msg5];\n}\nvar msg2 = {\n    payload: \"clear\"\n};\nreturn [null,msg2,null,null,null];",
+        "outputs": "5",
+        "noerr": 0,
+        "x": 264,
+        "y": 422,
+        "wires": [
+            [
+                "4f1dfa6b7e5c20c4"
+            ],
+            [
+                "f73eb666e583abe6"
+            ],
+            [
+                "9cc27043a098bf97"
+            ],
+            [
+                "0c2847fc8e7f5146"
+            ],
+            [
+                "b1a5aec264164d31"
+            ]
+        ]
+    },
+    {
+        "id": "dda1116ce1c3507b",
+        "type": "delay",
+        "z": "0870956febb0de40",
+        "name": "100ms",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 531,
+        "y": 324,
+        "wires": [
+            [
+                "8bf22a4f26732b49"
+            ]
+        ]
+    },
+    {
+        "id": "f8b410fd36b69d7a",
+        "type": "function",
+        "z": "0870956febb0de40",
+        "name": "pause",
+        "func": "var msg = {payload: \"pause\"};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 287,
+        "y": 501,
+        "wires": [
+            [
+                "9cc27043a098bf97"
+            ]
+        ]
+    },
+    {
+        "id": "baf128ee6d1544e1",
+        "type": "function",
+        "z": "0870956febb0de40",
+        "name": "None",
+        "func": "var msg = {payload: \"None\"};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 284,
+        "y": 554,
+        "wires": [
+            [
+                "0c2847fc8e7f5146"
+            ]
+        ]
+    },
+    {
+        "id": "674fb39541349f36",
+        "type": "ui_slider",
+        "z": "0870956febb0de40",
+        "name": "Volume",
+        "label": "",
+        "group": "f79bab65.368118",
+        "order": 3,
+        "width": "4",
+        "height": "1",
+        "passthru": true,
+        "topic": "",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "x": 119,
+        "y": 200,
+        "wires": [
+            [
+                "c20310f6284f458f"
+            ]
+        ]
+    },
+    {
+        "id": "c20310f6284f458f",
+        "type": "function",
+        "z": "0870956febb0de40",
+        "name": "setvol",
+        "func": "var temp = msg.payload;\n\ntemp = \"setvol \" + temp;\n\nvar msg = {\n    payload:temp\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 589,
+        "y": 196,
+        "wires": [
+            [
+                "f73eb666e583abe6"
+            ]
+        ]
+    },
+    {
+        "id": "cb143ed7b88c1ee7",
+        "type": "debug",
+        "z": "0870956febb0de40",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 590,
+        "y": 80,
         "wires": []
     }
 ]

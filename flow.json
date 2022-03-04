@@ -1,13 +1,5 @@
 [
     {
-        "id": "4023a3eb53ba1ca1",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "3759fe67.7b9ee2",
         "type": "tab",
         "label": "radio",

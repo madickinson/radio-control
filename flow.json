@@ -2909,14 +2909,16 @@
         "x": 440,
         "y": 160,
         "wires": [
-            []
+            [
+                "71bfe3e94287f05e"
+            ]
         ]
     },
     {
         "id": "3ed2e67e311e76e1",
         "type": "inject",
         "z": "b95862809bf737a0",
-        "name": "Volume 55",
+        "name": "Volume 30",
         "props": [
             {
                 "p": "payload"
@@ -2927,33 +2929,15 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "volume 45",
+        "payload": "setvol 45",
         "payloadType": "str",
         "x": 160,
         "y": 160,
         "wires": [
             [
-                "8444bdbe64f385ad",
-                "10be34448a0570c5"
+                "8444bdbe64f385ad"
             ]
         ]
-    },
-    {
-        "id": "10be34448a0570c5",
-        "type": "debug",
-        "z": "b95862809bf737a0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 330,
-        "y": 240,
-        "wires": []
     },
     {
         "id": "74ef1a28e272d45d",
@@ -2964,5 +2948,273 @@
         "x": 170,
         "y": 100,
         "wires": []
+    },
+    {
+        "id": "994c3125da883795",
+        "type": "mpd out",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "topic": "",
+        "server": "8d59a60d.eac0c8",
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "e99867b3003dfada"
+            ]
+        ]
+    },
+    {
+        "id": "e99867b3003dfada",
+        "type": "debug",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 360,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "71bfe3e94287f05e",
+        "type": "debug",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 614,
+        "y": 165,
+        "wires": []
+    },
+    {
+        "id": "3ceab05481cb6e31",
+        "type": "inject",
+        "z": "b95862809bf737a0",
+        "name": "List Songs in stations playlist",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "listplaylistinfo stations",
+        "payloadType": "str",
+        "x": 180,
+        "y": 400,
+        "wires": [
+            [
+                "994c3125da883795"
+            ]
+        ]
+    },
+    {
+        "id": "394c974249180943",
+        "type": "inject",
+        "z": "b95862809bf737a0",
+        "name": "Load Classical 101",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "load stations 1",
+        "payloadType": "str",
+        "x": 470,
+        "y": 400,
+        "wires": [
+            [
+                "611b9f1e4f9ccfeb"
+            ]
+        ]
+    },
+    {
+        "id": "bad7e3d103a28ad5",
+        "type": "exec",
+        "z": "b95862809bf737a0",
+        "command": "",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 270,
+        "y": 220,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f29e44342f8687ec",
+        "type": "complete",
+        "z": "b95862809bf737a0",
+        "name": "Classical Loaded",
+        "scope": [
+            "394c974249180943"
+        ],
+        "uncaught": false,
+        "x": 360,
+        "y": 80,
+        "wires": [
+            [
+                "534b7898d8f62169"
+            ]
+        ]
+    },
+    {
+        "id": "534b7898d8f62169",
+        "type": "debug",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 580,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "320fc5acf669a0b0",
+        "type": "status",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "scope": [
+            "994c3125da883795"
+        ],
+        "x": 440,
+        "y": 220,
+        "wires": [
+            [
+                "5ad8ce64d2f28ae1"
+            ]
+        ]
+    },
+    {
+        "id": "5ad8ce64d2f28ae1",
+        "type": "debug",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 632,
+        "y": 222,
+        "wires": []
+    },
+    {
+        "id": "844211fef410f862",
+        "type": "mpd in",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "topic": "currentsong file",
+        "server": "8d59a60d.eac0c8",
+        "x": 560,
+        "y": 320,
+        "wires": [
+            [
+                "4d26705c28f0f611"
+            ]
+        ]
+    },
+    {
+        "id": "4d26705c28f0f611",
+        "type": "debug",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "611b9f1e4f9ccfeb",
+        "type": "trigger",
+        "z": "b95862809bf737a0",
+        "name": "play",
+        "op1": "play 0",
+        "op2": "setvol 35",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "250",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 670,
+        "y": 400,
+        "wires": [
+            [
+                "994c3125da883795"
+            ]
+        ]
+    },
+    {
+        "id": "dd10f3545a11b59e",
+        "type": "inject",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "playlist",
+        "payloadType": "str",
+        "x": 90,
+        "y": 440,
+        "wires": [
+            [
+                "994c3125da883795"
+            ]
+        ]
     }
 ]

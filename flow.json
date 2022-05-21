@@ -17,7 +17,7 @@
     {
         "id": "b95862809bf737a0",
         "type": "tab",
-        "label": "Flow 2",
+        "label": "Startup",
         "disabled": false,
         "info": "",
         "env": []
@@ -3015,19 +3015,17 @@
         "topic": "",
         "payload": "listplaylistinfo stations",
         "payloadType": "str",
-        "x": 180,
-        "y": 400,
+        "x": 160,
+        "y": 520,
         "wires": [
-            [
-                "994c3125da883795"
-            ]
+            []
         ]
     },
     {
         "id": "394c974249180943",
         "type": "inject",
         "z": "b95862809bf737a0",
-        "name": "Load Classical 101",
+        "name": "Power On",
         "props": [
             {
                 "p": "payload"
@@ -3038,13 +3036,13 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "load stations 1",
+        "payload": "on",
         "payloadType": "str",
-        "x": 470,
+        "x": 80,
         "y": 400,
         "wires": [
             [
-                "611b9f1e4f9ccfeb"
+                "ec56be5cd5108ef9"
             ]
         ]
     },
@@ -3171,8 +3169,8 @@
         "id": "611b9f1e4f9ccfeb",
         "type": "trigger",
         "z": "b95862809bf737a0",
-        "name": "play",
-        "op1": "play 0",
+        "name": "Play First Song in Que",
+        "op1": "play 0 ",
         "op2": "setvol 35",
         "op1type": "str",
         "op2type": "str",
@@ -3184,11 +3182,12 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 670,
+        "x": 720,
         "y": 400,
         "wires": [
             [
-                "994c3125da883795"
+                "994c3125da883795",
+                "80514b59e6bbac6b"
             ]
         ]
     },
@@ -3209,12 +3208,139 @@
         "topic": "",
         "payload": "playlist",
         "payloadType": "str",
-        "x": 90,
-        "y": 440,
+        "x": 110,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6437470a4cdacf8d",
+        "type": "change",
+        "z": "b95862809bf737a0",
+        "name": "Change On to Load Classical 101",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "on",
+                "fromt": "str",
+                "to": "load stations 1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 460,
         "wires": [
             [
+                "611b9f1e4f9ccfeb",
+                "fb1befe280b7bf70",
                 "994c3125da883795"
             ]
         ]
+    },
+    {
+        "id": "ec56be5cd5108ef9",
+        "type": "trigger",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "op1": "clear",
+        "op2": "",
+        "op1type": "str",
+        "op2type": "pay",
+        "duration": "250",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 280,
+        "y": 400,
+        "wires": [
+            [
+                "2623f895493acaa5",
+                "994c3125da883795"
+            ],
+            [
+                "6437470a4cdacf8d",
+                "11bea9909f6be056"
+            ]
+        ]
+    },
+    {
+        "id": "11bea9909f6be056",
+        "type": "debug",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 480,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "fb1befe280b7bf70",
+        "type": "debug",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 792,
+        "y": 539,
+        "wires": []
+    },
+    {
+        "id": "80514b59e6bbac6b",
+        "type": "debug",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 960,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "2623f895493acaa5",
+        "type": "debug",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 486,
+        "y": 386,
+        "wires": []
     }
 ]

@@ -15,6 +15,14 @@
         "env": []
     },
     {
+        "id": "b95862809bf737a0",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "979ccdc6c31f7dfc",
         "type": "group",
         "z": "3759fe67.7b9ee2",
@@ -2890,5 +2898,71 @@
                 "13aa2c55.b7e3d4"
             ]
         ]
+    },
+    {
+        "id": "8444bdbe64f385ad",
+        "type": "mpd out",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "topic": "",
+        "server": "8d59a60d.eac0c8",
+        "x": 440,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ed2e67e311e76e1",
+        "type": "inject",
+        "z": "b95862809bf737a0",
+        "name": "Volume 55",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "volume 45",
+        "payloadType": "str",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "8444bdbe64f385ad",
+                "10be34448a0570c5"
+            ]
+        ]
+    },
+    {
+        "id": "10be34448a0570c5",
+        "type": "debug",
+        "z": "b95862809bf737a0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 330,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "74ef1a28e272d45d",
+        "type": "comment",
+        "z": "b95862809bf737a0",
+        "name": "Volume",
+        "info": "Sets volume to a reasonable level. Default is to go to 100 right away. ",
+        "x": 170,
+        "y": 100,
+        "wires": []
     }
 ]

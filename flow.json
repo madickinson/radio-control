@@ -23,6 +23,14 @@
         "env": []
     },
     {
+        "id": "c60c90aadc978a66",
+        "type": "tab",
+        "label": "Volume",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "979ccdc6c31f7dfc",
         "type": "group",
         "z": "3759fe67.7b9ee2",
@@ -234,6 +242,29 @@
         "name": "Radio/Music",
         "icon": "dashboard",
         "order": 1
+    },
+    {
+        "id": "a0b50d1f05c89192",
+        "type": "ioplugin",
+        "name": "",
+        "username": "",
+        "password": "",
+        "boardType": "raspi-io",
+        "serialportName": "",
+        "connectionType": "local",
+        "mqttServer": "",
+        "pubTopic": "",
+        "subTopic": "",
+        "tcpHost": "",
+        "tcpPort": "",
+        "sparkId": "",
+        "sparkToken": "",
+        "beanId": "",
+        "impId": "",
+        "uuid": "",
+        "token": "",
+        "sendUuid": "",
+        "samplingInterval": "500"
     },
     {
         "id": "ec33d4cb.26cea8",
@@ -3341,6 +3372,116 @@
         "statusType": "auto",
         "x": 486,
         "y": 386,
+        "wires": []
+    },
+    {
+        "id": "9636da23b2a167e8",
+        "type": "pi-gpiod in",
+        "z": "c60c90aadc978a66",
+        "name": "",
+        "host": "192.168.1.195",
+        "port": 8888,
+        "pin": "",
+        "intype": "PUD_OFF",
+        "debounce": "25",
+        "read": false,
+        "x": 220,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5f9fbcbb9cbec5f",
+        "type": "pi-gpiod out",
+        "z": "c60c90aadc978a66",
+        "name": "",
+        "host": "192.168.1.195",
+        "port": 8888,
+        "pin": "2",
+        "set": "",
+        "level": "0",
+        "out": "out",
+        "sermin": "1000",
+        "sermax": "2000",
+        "freq": "800",
+        "x": 470,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "38783d57bc395424",
+        "type": "mpd out",
+        "z": "c60c90aadc978a66",
+        "name": "",
+        "topic": "",
+        "server": "8d59a60d.eac0c8",
+        "x": 600,
+        "y": 160,
+        "wires": [
+            [
+                "4dd839acdcc2863a"
+            ]
+        ]
+    },
+    {
+        "id": "4c35302b4ac0e006",
+        "type": "inject",
+        "z": "c60c90aadc978a66",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "volume 10",
+        "payloadType": "str",
+        "x": 240,
+        "y": 80,
+        "wires": [
+            [
+                "38783d57bc395424",
+                "4242bec43fcd4153"
+            ]
+        ]
+    },
+    {
+        "id": "4dd839acdcc2863a",
+        "type": "debug",
+        "z": "c60c90aadc978a66",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 820,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4242bec43fcd4153",
+        "type": "debug",
+        "z": "c60c90aadc978a66",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 598,
+        "y": 64,
         "wires": []
     }
 ]
